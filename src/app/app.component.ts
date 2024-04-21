@@ -28,6 +28,11 @@ export class AppComponent {
       .subscribe(data => this.productsData = data);
   }
 
+  switchSugarFree(e: Event) {
+    this.http.get<Product[]>("https://testologia.ru/cookies" + ((e.currentTarget as HTMLInputElement).checked ? '?sugarfree' : ''))
+      .subscribe(data => this.productsData = data);
+  }
+
   scrollTo(target: HTMLElement, product?: Product): void {
     target.scrollIntoView({behavior: 'smooth'});
     if (product) {

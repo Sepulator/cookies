@@ -19,7 +19,7 @@
 
   <section class="main-contain">
     <div class="container">
-      <img ngSrc="./assets/images/line-01.png" alt="Line" class="line1" height="1230" width="1055">
+      <img ngSrc="./assets/images/line-01.png" alt="Line" class="line1" height="1230" width="1055" priority>
       <div class="main-info">
         <h1 class="main-title">Магия вкуса<br> в каждой крошке</h1>
         <p class="main-text">Наши рецепты вдыхают жизнь в изысканность ингредиентов: ароматное натуральное
@@ -39,6 +39,12 @@
     <div class="container">
       <img ngSrc="./assets/images/line-02.png" alt="Line" class="line2" height="2062" width="1920" priority>
       <div class="common-title">Выберите печенье</div>
+      <div class="sugar-free">
+        <div>Все</div>
+        <input type="checkbox" id="switch" (change)="switchSugarFree($event)" />
+        <label for="switch"></label>
+        <div>Без сахара</div>
+      </div>
       <div class="products-items">
 
         <div class="products-item" *ngFor="let product of productsData">
