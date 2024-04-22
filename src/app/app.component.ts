@@ -46,10 +46,8 @@ export class AppComponent {
     setTimeout(() => {
       this.loader = false;
     }, 3000);
-    // this.http.get<Product[]>('https://testologia.ru/cookies')
-    //   .subscribe(data => this.productsData = data);
-
-    this.productsData = productsData;
+    this.http.get<Product[]>('https://testologia.ru/cookies')
+      .subscribe(data => this.productsData = data);
   }
 
   switchSugarFree(e: Event) {
