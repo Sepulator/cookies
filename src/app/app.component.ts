@@ -1,7 +1,8 @@
-import {Component, HostListener} from '@angular/core';
-import {Product} from "../assets/products";
+import {Component, HostListener, Output} from '@angular/core';
+import {productsData} from "../assets/products";
 import {FormBuilder, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {Product} from "./product";
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,9 @@ export class AppComponent {
 
   protected productsData: Product[] = [];
 
-  protected loader = true;
+  @Output() loader = true;
 
-  protected loaderShowed = true;
+  @Output() loaderShowed = true;
 
   protected mainImageStyle: Record<string, string> = {};
   protected orderImageStyle: Record<string, string> = {};
@@ -45,8 +46,10 @@ export class AppComponent {
     setTimeout(() => {
       this.loader = false;
     }, 3000);
-    this.http.get<Product[]>('https://testologia.ru/cookies')
-      .subscribe(data => this.productsData = data);
+    // this.http.get<Product[]>('https://testologia.ru/cookies')
+    //   .subscribe(data => this.productsData = data);
+
+    this.productsData = productsData;
   }
 
   switchSugarFree(e: Event) {
